@@ -1,0 +1,115 @@
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+}
+body{
+  height: 100%;
+  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/slider-2.jpg');
+  overflow: auto;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+}
+.logintitle{
+      color:rgb(175, 177, 190);
+      text-align:center;
+      font-size:16px;
+      margin: 10%;
+}
+#wrapper{
+}
+
+.psignup {
+    font-size: 14px;
+    color: #ABA8AE;
+    margin: 5%;
+    text-align: center;
+  }
+  
+.asignup {
+     color: #fff;
+     cursor: pointer;
+    }
+
+.error{
+	color:red;
+}
+.formBox{
+  margin:5% 0% 0% 40%;
+  width: 300px;
+  position: relative;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(146, 135, 187, 0.6) 0%, rgba(0,0,0,0.6) 100%);
+  transition: opacity 0.1s, transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
+  transform: scale(1);
+}
+
+#forminput{
+	background: none;
+}
+
+input[type=email], input[type=text], input[type=password], select {
+  width: 90%;
+  height: 35px;
+  border: 0;
+  border-bottom: #E7E7E5 0.5px solid;
+  outline:0;
+  margin: 5% 5% 5% 5%;
+  background:none;
+  background-color:none;
+  transition: 0.3s cubic-bezier(0.770, 0.000, 0.175, 1.000);
+  font-family: "Roboto", sans-serif; 
+  font-size: 15px;
+  color: white;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+input:-webkit-autofill, 
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus{
+	background: none;
+	background-color: none;
+}
+
+input[type=email]:focus, input[type=text]:focus, input[type=password]:focus, select:focus {
+  margin: 0px;
+  width: 95%;
+  margin: 5% 2% 5% 2%;
+  border-bottom: #003C60 0.5px solid;
+  transition: 0.5s cubic-bezier(0.770, 0.000, 0.175, 1.000);
+  background:none;
+  background-color: none;
+}
+input.box:last-child {
+  margin-bottom: 0;
+}
+
+.submitButton{
+	position: relative;
+    width: 90%;
+    height: 35px;
+    color: rgba(255, 255, 255, 0.8);
+    background: #FF3366;
+    font-size: 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    overflow: hidden;
+    -webkit-transition: width 0.3s 0.15s, font-size 0.1s 0.15s;
+    transition: width 0.3s 0.15s, font-size 0.1s 0.15s;
+    margin: 5% 5% 5% 5%;
+    border: none;
+}
+
+.success{
+	color:green;
+}
+
+
+#registrationForm{
+	display:none;
+}

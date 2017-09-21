@@ -1,0 +1,3 @@
+showRegisterForm()=>{
+	console.log("Something");
+}
