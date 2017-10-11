@@ -24,6 +24,7 @@ public class UserService {
 		this.roleRepository=roleRepository;
 		this.bCryptPasswordEncoder=bCryptPasswordEncoder;
 	}
+
 	//Create user with USER ROLE
 	public void saveWithUserRole(User user) {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
@@ -48,10 +49,8 @@ public class UserService {
 		Role role=roleRepository.findByName("ROLE_ADMIN").get(0);
 		System.out.println(role.getName());
 		if(userRepository.findByRolesContains(role).size()>0) {
-			System.out.println("********");
 			return true;
 		}else {
-			System.out.println("**>>>>>>>>>>>>>>>>>>>");
 			return false;
 		}
 	}

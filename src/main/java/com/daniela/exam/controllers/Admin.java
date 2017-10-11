@@ -37,7 +37,7 @@ public class Admin {
 	
 	@GetMapping("/dashboard")
 	public String admindashboard(@ModelAttribute("package") Package pack, BindingResult result, Model model) {
-		//get all users
+		//Get all users
 		List<User> allUsers=userService.findAll();
 		model.addAttribute("allUsers", allUsers);
 		
@@ -56,12 +56,6 @@ public class Admin {
 			redirectAttributes.addFlashAttribute("success", "You successfully created a Package!");
 			return "redirect:/admin/dashboard";
 		}
-	}
-	
-
-	
-	
-	
-	
+	}	
 
 }

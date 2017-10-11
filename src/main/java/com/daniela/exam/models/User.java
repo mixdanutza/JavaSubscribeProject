@@ -155,8 +155,6 @@ public class User {
 		this.roles = roles;
 	}
 
-
-
 	public Package getP() {
 		return p;
 	}

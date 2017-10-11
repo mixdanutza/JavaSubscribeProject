@@ -6,20 +6,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>User Profile</title>
 </head>
 <body>
 	<form id="logoutForm" method="POST" action="/logout">
 	    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	    <button class="w3-btn w3-white w3-border w3-round-large" type="submit">Logout</button>
 	</form>
-
-
-<h1>Welcome, ${currentUser.firstName}</h1>
-
-<p> <strong>Current package:</strong> ${currentUser.p.name}</p>
-<p> <strong>Next due date:</strong> ${currentUser.subscription.due}</p>
-<p> <strong>Ammount:</strong> ${currentUser.p.cost}</p>
-<p> <strong>user since: </strong> ${currentUser.createdAt}</p>
+	<h1>Welcome, ${currentUser.firstName}</h1>
+	<p> <strong>Current package:</strong> ${currentUser.p.name}</p>
+	<p> <strong>Next due date:</strong> ${currentUser.subscription.due}</p>
+	<p> <strong>Ammount:</strong> ${currentUser.p.cost}</p>
+	<p> <strong>user since: </strong> ${currentUser.createdAt}</p>
 </body>
 </html>

@@ -1,7 +1,5 @@
 package com.daniela.exam.controllers;
 
-
-
 import static org.mockito.Matchers.anyList;
 
 import java.security.Principal;
@@ -10,7 +8,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.function.LongFunction;
-
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -47,7 +44,6 @@ public class Home {
 	
     @RequestMapping("/")
     public String home(Principal principal, Model model, RedirectAttributes redirectAttributes, @ModelAttribute("subscription") Subscription subscription) {
-    	//1
     	String username=principal.getName();
     	User currentUser=userService.findByUsername(username);
     	if(currentUser!=null) {
@@ -79,7 +75,7 @@ public class Home {
         	System.out.println("Registration Error!");
             return "registrationPage.jsp";
         }
-        //check if admin exists
+        //Verify if an admin exists if not create admin otherwise create user
         if(userService.isAdmin()==true) {
         	userService.saveWithUserRole(user);     	
         }else {
@@ -87,18 +83,13 @@ public class Home {
         }
         redirectAttributes.addFlashAttribute("success", "You are successfully registered, please login!");
         return "redirect:/login";
-		
 	}
-	
-	
+		
 	@GetMapping("/profile")
 	public String displayProfile(Model model, Principal principal, RedirectAttributes redirectAttributes) {
 		String username=principal.getName();
     	User currentUser=userService.findByUsername(username);
     	if(currentUser!=null) {
-//    		if(currentUser.getSubscription()==null) {
-//    			return "redirect:/";
-//    		}
     		model.addAttribute("currentUser", currentUser);
     		return "profile.jsp";	
     	}else {
@@ -109,23 +100,6 @@ public class Home {
 	
 	@PostMapping("/newSubscription")
 	public String createSubscription(@Valid @ModelAttribute("subscription") Subscription subscription, Principal principal, BindingResult result, Model model, RedirectAttributes redirectAttributes) {
-//			if(subscription.getDue()==null ) {
-//				System.out.println("?????");
-//				redirectAttributes.addFlashAttribute("error", "Please choose a due date!");
-//				return "redirect:/";
-//			}
-			
-//			Date date=new Date();
-//			LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-//			System.out.println(localDate);
-//			int month = localDate.getMonthValue();
-//			System.out.println("MONTH:"+month);
-//			if(month==2) {
-//				if( Integer.parseInt(subscription.getDue().toString())>28) {
-//					
-//				}
-//			}
-		
 			String username=principal.getName();
 	    	User currentUser=userService.findByUsername(username);
 			System.out.println(subscription.getDue());
@@ -134,7 +108,7 @@ public class Home {
 			String s = formatter.format(date);
 			subscription.setDue(s);
 			subscriptionService.createSubscription(subscription);
-			
+
 			currentUser.setSubscription(subscription);
 			
 			Package pack = subscription.getPack();
@@ -142,12 +116,6 @@ public class Home {
 			currentUser.setSubscription(subscription);
 			userService.updateUser(currentUser);
 			
-//			subscriptionService.updateSubscription(subscription);
 			return "redirect:/profile";
 	}
-	
-	
-
-
-
 }

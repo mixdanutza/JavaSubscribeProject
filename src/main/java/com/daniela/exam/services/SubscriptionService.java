@@ -16,13 +16,11 @@ public class SubscriptionService {
 	}
 
 	public void createSubscription(Subscription subscription) {
-		subscriptionRepository.save(subscription);
-		
+		subscriptionRepository.save(subscription);		
 	}
 
 	public void updateSubscription(Subscription subscription) {
-		subscriptionRepository.save(subscription);
-		
+		subscriptionRepository.save(subscription);		
 	}
 
 }

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Dashboard</title>
 <link rel="stylesheet" type="text/css" href="css/dashboard.css"/>
 </head>
 <body>
@@ -16,12 +16,12 @@
 	</form>
 	<h1>Welcome to Dojoscriptions, ${currentUser.firstName} !</h1>
 	<h3>Please choose a subscription and due date!</h3>
-	
-	
-	<p><strong>Roles:</strong><c:forEach items="${currentUser.roles}" var="role"> ${role.name}</c:forEach></p>
-	
+	<p>
+		<strong>Roles:</strong>
+		<c:forEach items="${currentUser.roles}" var="role"> ${role.name}</c:forEach>
+	</p>	
 	<div class="formBox">
-	<p class="success"> <c:out value="${success}"/></p>
+		<p class="success"> <c:out value="${success}"/></p>
 		<form:form action="/newSubscription" method="POST" modelAttribute="subscription">
 		    <p>
 		        Due date:
@@ -39,8 +39,6 @@
 		    </p>
 		    <button class="submitBtn" type="submit">Sign Up!</button>
 		</form:form>
-	</div>
-
-	
+	</div>	
 </body>
 </html>

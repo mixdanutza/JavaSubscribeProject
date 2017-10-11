@@ -31,19 +31,31 @@ public class Package {
 	private Float cost;
 	
 	@Column
-	private Boolean available;
-	
+	private Boolean available;	
 	
 	@OneToMany(mappedBy="p", fetch=FetchType.LAZY)
 	private List<User> users;
 	
 	@OneToMany(mappedBy="pack", fetch=FetchType.LAZY)
 	private List<Subscription> subscriptions;
+
+	@CreationTimestamp
+	private Date createdAt;
 	
+	@UpdateTimestamp
+	private Date updatedAt;
 	
+	@OneToOne(mappedBy="pack", fetch=FetchType.LAZY)
+	private Subscription subscription;	
 	
-	
-	
+
+	public Package(String name, Float cost, Boolean available) {
+		this.name = name;
+		this.cost=cost;
+		this.available=available;
+		this.createdAt= new Date();
+		this.updatedAt=new Date();
+	}
 	
 	public List<User> getUsers() {
 		return users;
@@ -62,28 +74,6 @@ public class Package {
 	}
 	public void setCost(Float cost) {
 		this.cost = cost;
-	}
-
-	@CreationTimestamp
-	private Date createdAt;
-	
-	@UpdateTimestamp
-	private Date updatedAt;
-	
-	@OneToOne(mappedBy="pack", fetch=FetchType.LAZY)
-	private Subscription subscription;
-	
-	
-	
-	
-	
-
-	public Package(String name, Float cost, Boolean available) {
-		this.name = name;
-		this.cost=cost;
-		this.available=available;
-		this.createdAt= new Date();
-		this.updatedAt=new Date();
 	}
 	public Boolean getAvailable() {
 		return available;

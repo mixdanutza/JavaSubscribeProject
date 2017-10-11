@@ -17,9 +17,7 @@ public class UserValidator implements Validator {
 	
 	public UserValidator(UserService userService) {
 		this.userService=userService;
-	}
-	
-	
+	}	
 	
 	public static final Pattern VALID_EMAIL_ADDRESS_REGEX = 
 		    Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
@@ -45,6 +43,7 @@ public class UserValidator implements Validator {
         if(matchFirst.find()==false) {
         	errors.rejectValue("firstName", "Regex");
         }
+        
         Matcher matchLast=VALID_NAME_REGEX.matcher(user.getLastName());
         if(matchLast.find()==false) {
         	errors.rejectValue("lastName", "Regex");
@@ -55,7 +54,6 @@ public class UserValidator implements Validator {
         }
         
     	if (!user.getPasswordConfirm().equals(user.getPassword())) {
-    		// 3
     		errors.rejectValue("passwordConfirm", "Match");
     	}  
     	

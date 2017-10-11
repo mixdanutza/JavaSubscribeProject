@@ -7,127 +7,121 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Admin Page</title>
 <link rel="stylesheet" type="text/css" href="css/admin.css"/>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <style>
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
+	table {
+		border-collapse: collapse;
+		width: 100%;
+	}
 
-th, td {
-    text-align: left;
-    padding: 8px;
-}
+	th, td {
+		text-align: left;
+		padding: 8px;
+	}
 
-tr:nth-child(even){background-color: #f2f2f2}
+	tr:nth-child(even){background-color: #f2f2f2}
 
-th {
-    background-color: #4CAF50;
-    color: white;
-}
+	th {
+		background-color: #4CAF50;
+		color: white;
+	}
 
-.error{
-	color:red;
-}
-.formBox{
-	margin:0% 40% 0% 40%;
-}
-input[type=text], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-input[type=number], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-input[type=email], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-input[type=password] select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
+	.error{
+		color:red;
+	}
+	.formBox{
+		margin:0% 40% 0% 40%;
+	}
+	input[type=text], select {
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-sizing: border-box;
+	}
+	input[type=number], select {
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-sizing: border-box;
+	}
+	input[type=email], select {
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-sizing: border-box;
+	}
+	input[type=password] select {
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-sizing: border-box;
+	}
 
-input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-.password{
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+	input[type=submit] {
+		width: 100%;
+		background-color: #4CAF50;
+		color: white;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+	}
+	.password{
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-sizing: border-box;
 
-}
-.submitBtn{
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
+	}
+	.submitBtn{
+		width: 100%;
+		background-color: #4CAF50;
+		color: white;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+	}
 
-input[type=submit]:hover {
-    background-color: #45a049;
-}
+	input[type=submit]:hover {
+		background-color: #45a049;
+	}
 
-div {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-}
-.success{
-	color:green;
-}
-.linkButton{
-
-}
+	div {
+		border-radius: 5px;
+		background-color: #f2f2f2;
+		padding: 20px;
+	}
+	.success{
+		color:green;
+	}
 </style>
 <body>
-
 	<form id="logoutForm" method="POST" action="/logout">
 	    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	    <button class="w3-btn w3-white w3-border w3-round-large" type="submit">Logout</button>
 	</form>
-
-	<h1> Admin dashboard !</h1>
-	
+	<h1> Admin dashboard !</h1>	
 	<h2>Customers</h2>
 	<table>
 	  <tr>
@@ -145,11 +139,7 @@ div {
 		  </tr>
 	  </c:forEach>
 	</table>
-
-
-<hr>
-
-
+	<hr>
 	<h2>Packages</h2>
 	<table>
 	  <tr>
@@ -183,10 +173,8 @@ div {
 		    </td>
 		  </tr> 
 	  </c:forEach>
-	</table>
-	
-	<hr>
-	
+	</table>	
+	<hr>	
 	<div class="formBox">
 	<p class="success"> <c:out value="${success}"/></p>
 		<form:form action="/admin/newPackage" method="POST" modelAttribute="package">
@@ -205,9 +193,6 @@ div {
 		    </p>
 		    <button class="submitBtn" type="submit">Create Package</button>
 		</form:form>
-	</div>
-
-
-	
+	</div>	
 </body>
 </html>

@@ -44,6 +44,15 @@ public class Subscription {
 	private Package pack;
 
 
+	public Subscription() {
+	}
+
+	public Subscription(String due) {
+		this.due = due;
+		this.createdAt=new Date();
+		this.updatedAt=new Date();
+	}
+
 	public Package getPack() {
 		return pack;
 	}
@@ -58,16 +67,6 @@ public class Subscription {
 
 	public void setUser(User user) {
 		this.user = user;
-	}
-
-
-	public Subscription() {
-	}
-
-	public Subscription(String due) {
-		this.due = due;
-		this.createdAt=new Date();
-		this.updatedAt=new Date();
 	}
 
 
