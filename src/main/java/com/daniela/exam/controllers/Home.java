@@ -76,7 +76,7 @@ public class Home {
 	public String registerForm(@Valid @ModelAttribute("user") User user, BindingResult result, Model model, HttpSession session, RedirectAttributes redirectAttributes) {
         userValidator.validate(user, result);
         if(result.hasErrors()){
-        	System.out.println("ERRRRRRRRRRORRRRS");
+        	System.out.println("Registration Error!");
             return "registrationPage.jsp";
         }
         //check if admin exists
